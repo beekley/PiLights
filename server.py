@@ -7,7 +7,7 @@ from flask import Flask, request
 ################
 
 # LED strip configuration:
-LED_COUNT      = 16      # Number of LED pixels.
+LED_COUNT      = 50      # Number of LED pixels.
 LED_PIN        = 21      # GPIO pin connected to the pixels (18 uses PWM!).
 #LED_PIN        = 10      # GPIO pin connected to the pixels (10 uses SPI /dev/spidev0.0).
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
@@ -107,7 +107,7 @@ def StrandTest ():
         theaterChaseRainbow(strip)
     else:
         return "Invalid request"
-    
+
     return "Animations complete"
 
 if __name__ == "__main__":
