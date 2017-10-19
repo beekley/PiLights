@@ -89,26 +89,30 @@ def StrandTest ():
     print('animation: ' + animation, file=sys.stderr)
     print('color: ' + color, file=sys.stderr)
 
-    if animation == 'colorWipe':
-        # if no color provided
-        if color == '':
-            colorWipe(strip, Color(255, 0, 0)) # Red wipe
-            colorWipe(strip, Color(0, 255, 0)) # Blue wipe
-            colorWipe(strip, Color(0, 0, 255)) # Green wipe
-    elif animation == 'theaterChase':
-        # if no color provided
-        if color == '':
-            theaterChase(strip, Color(127, 127, 127))  # White theater chase
-            theaterChase(strip, Color(127,   0,   0))  # Red theater chase
-            theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
-    elif animation == 'rainbow':
-        rainbow(strip)
-    elif animation == 'rainbowCycle':
-        rainbowCycle(strip)
-    elif animation == 'theaterChaseRainbow':
-        theaterChaseRainbow(strip)
-    else:
-        return "Invalid request"
+    colorWipe(strip, Color(255, 0, 0)) # Red wipe
+    colorWipe(strip, Color(0, 255, 0)) # Blue wipe
+    colorWipe(strip, Color(0, 0, 255)) # Green wipe
+
+    # if animation == 'colorWipe':
+    #     # if no color provided
+    #     if color == '':
+    #         colorWipe(strip, Color(255, 0, 0)) # Red wipe
+    #         colorWipe(strip, Color(0, 255, 0)) # Blue wipe
+    #         colorWipe(strip, Color(0, 0, 255)) # Green wipe
+    # elif animation == 'theaterChase':
+    #     # if no color provided
+    #     if color == '':
+    #         theaterChase(strip, Color(127, 127, 127))  # White theater chase
+    #         theaterChase(strip, Color(127,   0,   0))  # Red theater chase
+    #         theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
+    # elif animation == 'rainbow':
+    #     rainbow(strip)
+    # elif animation == 'rainbowCycle':
+    #     rainbowCycle(strip)
+    # elif animation == 'theaterChaseRainbow':
+    #     theaterChaseRainbow(strip)
+    # else:
+    #     return "Invalid request"
 
     return "Animations complete"
 
