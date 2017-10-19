@@ -86,6 +86,8 @@ def StrandTest ():
     # Get URL params for type and color of animation
     animation = request.args.get('animation', default='colorWipe')
     color = request.args.get('color', default='')
+    print('animation: ' + animation, file=sys.stderr)
+    print('color: ' + color, file=sys.stderr)
 
     if animation == 'colorWipe':
         # if no color provided
