@@ -81,6 +81,8 @@ def theaterChaseRainbow(strip, wait_ms=50):
 
 app = Flask(__name__)
 
+### Lighting Routes ###
+
 @app.route("/strandtest", methods=['GET'])
 
 def StrandTest ():
@@ -89,10 +91,6 @@ def StrandTest ():
     color = request.args.get('color', default='')
     sys.stderr.write('animation: ' + animation)
     sys.stderr.write('color: ' + color)
-
-    # colorWipe(strip, Color(255, 0, 0)) # Red wipe
-    # colorWipe(strip, Color(0, 255, 0)) # Blue wipe
-    # colorWipe(strip, Color(0, 0, 255)) # Green wipe
 
     if animation == 'colorWipe':
         # if no color provided
@@ -116,6 +114,17 @@ def StrandTest ():
         return "Invalid request"
 
     return "Animations complete"
+
+### Client Serving ###
+
+@app.route('/')
+def hello_world():
+    return app.send_static_file('index.html')
+
+# Serve static files from client directory
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('client', path)
 
 if __name__ == "__main__":
     # Create NeoPixel object with appropriate configuration.
