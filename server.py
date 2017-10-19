@@ -1,4 +1,5 @@
 import time
+import sys
 from neopixel import *
 from flask import Flask, request
 
@@ -86,6 +87,7 @@ def StrandTest ():
     # Get URL params for type and color of animation
     animation = request.args.get('animation', default='colorWipe')
     color = request.args.get('color', default='')
+    sys.stderr.write('Request Received.\n')
     print('animation: ' + animation, file=sys.stderr)
     print('color: ' + color, file=sys.stderr)
 
@@ -121,5 +123,6 @@ if __name__ == "__main__":
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
     # Intialize the library (must be called once before other functions).
     strip.begin()
+    sys.stderr.write('Server Started.\n')
     # Start server
     app.run(host='0.0.0.0', port=4000)
