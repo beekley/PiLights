@@ -79,18 +79,18 @@ def theaterChaseRainbow(strip, wait_ms=50):
 # Server Config #
 #################
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='client')
 
 ### Client Serving ###
 
 @app.route('/')
-def hello_world():
-    return Flask.send_from_directory('client', 'index.html')
+def home_route():
+    return send_from_directory(app.static_folder, 'index.html')
 
 # Serve static files from client directory
-@app.route('/static/<path:path>')
-def send_static(path):
-    return Flask.send_from_directory('client', path)
+@app.route('/<path:filename>')
+def send_file(filename):
+    return send_from_directory(app.static_folder, filename)
 
 ### Lighting Routes ###
 
