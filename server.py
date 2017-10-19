@@ -85,12 +85,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return send_from_directory('client', 'index.html')
+    return app.send_from_directory('client', 'index.html')
 
 # Serve static files from client directory
 @app.route('/static/<path:path>')
 def send_static(path):
-    return send_from_directory('client', path)
+    return app.send_from_directory('client', path)
 
 ### Lighting Routes ###
 
