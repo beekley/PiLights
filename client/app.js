@@ -1,34 +1,27 @@
 const URL = 'http://raspberrypi.local:4000';
 
-// Retrieves all documents
-// const getDocuments = async function() {
-//   try {
-//     console.log(this);
-//     this.documents = await axios.get(`${URL}/api/document`);
-//   }
-//   catch (e) {
-//     this.errors.push(e);
-//   }
-// }
+// Plays strand test of given type
+const strandTest = async function(event) {
+  try {
+    console.log(this);
+    this.documents = await axios.get(`/strandtest?animation=${this.strandTestAnimation}`);
+  }
+  catch (e) {
+    console.log(e);
+    this.errors.push(e);
+  }
+}
 
 // View Model for main app
 const appVm = new Vue({
   el: '#app',
   data: {
     message: 'Hello Vue.js!',
-    documents: [],
+    strandTestAnimation: 'rainbowCycle',
     errors: [],
   },
   methods: {
-    rainbowCycle: async function(event) {
-      try {
-        console.log(this);
-        this.documents = await axios.get(`${URL}/strandtest?animation=rainbowCycle`);
-      }
-      catch (e) {
-        this.errors.push(e);
-      }
-    }
+    strandTest,
   },
   created: () => {},
 });
