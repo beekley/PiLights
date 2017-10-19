@@ -85,8 +85,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    sys.stderr.write('Home route.')
-    return app.send_static_file('index.html')
+    return send_from_directory('client', 'index.html')
 
 # Serve static files from client directory
 @app.route('/static/<path:path>')
