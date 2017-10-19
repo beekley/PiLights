@@ -1,7 +1,7 @@
 import time
 import sys
 from neopixel import *
-from flask import Flask, request
+from flask import (Flask, request, send_from_directory)
 
 ################
 # Strip Config #
@@ -85,12 +85,12 @@ app = Flask(__name__, static_folder='client')
 
 @app.route('/')
 def home_route():
-    return flask.send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory(app.static_folder, 'index.html')
 
 # Serve static files from client directory
 @app.route('/<path:filename>')
 def send_file(filename):
-    return flask.send_from_directory(app.static_folder, filename)
+    return send_from_directory(app.static_folder, filename)
 
 ### Lighting Routes ###
 
