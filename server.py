@@ -87,35 +87,33 @@ def StrandTest ():
     # Get URL params for type and color of animation
     animation = request.args.get('animation', default='colorWipe')
     color = request.args.get('color', default='')
-    sys.stderr.write('Request Received.\n')
-    # print('animation: ' + animation, file=sys.stderr)
     sys.stderr.write('animation: ' + animation)
-    # print('color: ' + color, file=sys.stderr)
+    sys.stderr.write('color: ' + color)
 
-    colorWipe(strip, Color(255, 0, 0)) # Red wipe
-    colorWipe(strip, Color(0, 255, 0)) # Blue wipe
-    colorWipe(strip, Color(0, 0, 255)) # Green wipe
+    # colorWipe(strip, Color(255, 0, 0)) # Red wipe
+    # colorWipe(strip, Color(0, 255, 0)) # Blue wipe
+    # colorWipe(strip, Color(0, 0, 255)) # Green wipe
 
-    # if animation == 'colorWipe':
-    #     # if no color provided
-    #     if color == '':
-    #         colorWipe(strip, Color(255, 0, 0)) # Red wipe
-    #         colorWipe(strip, Color(0, 255, 0)) # Blue wipe
-    #         colorWipe(strip, Color(0, 0, 255)) # Green wipe
-    # elif animation == 'theaterChase':
-    #     # if no color provided
-    #     if color == '':
-    #         theaterChase(strip, Color(127, 127, 127))  # White theater chase
-    #         theaterChase(strip, Color(127,   0,   0))  # Red theater chase
-    #         theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
-    # elif animation == 'rainbow':
-    #     rainbow(strip)
-    # elif animation == 'rainbowCycle':
-    #     rainbowCycle(strip)
-    # elif animation == 'theaterChaseRainbow':
-    #     theaterChaseRainbow(strip)
-    # else:
-    #     return "Invalid request"
+    if animation == 'colorWipe':
+        # if no color provided
+        if color == '':
+            colorWipe(strip, Color(255, 0, 0)) # Red wipe
+            colorWipe(strip, Color(0, 255, 0)) # Blue wipe
+            colorWipe(strip, Color(0, 0, 255)) # Green wipe
+    elif animation == 'theaterChase':
+        # if no color provided
+        if color == '':
+            theaterChase(strip, Color(127, 127, 127))  # White theater chase
+            theaterChase(strip, Color(127,   0,   0))  # Red theater chase
+            theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
+    elif animation == 'rainbow':
+        rainbow(strip)
+    elif animation == 'rainbowCycle':
+        rainbowCycle(strip)
+    elif animation == 'theaterChaseRainbow':
+        theaterChaseRainbow(strip)
+    else:
+        return "Invalid request"
 
     return "Animations complete"
 
