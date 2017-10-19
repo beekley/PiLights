@@ -20,6 +20,15 @@ const appVm = new Vue({
     errors: [],
   },
   methods: {
+    rainbowCycle: async function(event) {
+      try {
+        console.log(this);
+        this.documents = await axios.get(`${URL}/strandtest?animation=rainbowCycle`);
+      }
+      catch (e) {
+        this.errors.push(e);
+      }
+    }
   },
   created: () => {},
 });
