@@ -88,8 +88,9 @@ def StrandTest ():
     animation = request.args.get('animation', default='colorWipe')
     color = request.args.get('color', default='')
     sys.stderr.write('Request Received.\n')
-    print('animation: ' + animation, file=sys.stderr)
-    print('color: ' + color, file=sys.stderr)
+    # print('animation: ' + animation, file=sys.stderr)
+    sys.stderr.write('animation: ' + animation)
+    # print('color: ' + color, file=sys.stderr)
 
     colorWipe(strip, Color(255, 0, 0)) # Red wipe
     colorWipe(strip, Color(0, 255, 0)) # Blue wipe
