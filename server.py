@@ -3,6 +3,7 @@ import sys
 from neopixel import *
 from flask import (Flask, request, send_from_directory)
 import programs.strandTest as strandTest
+import programs.off as off
 
 ################
 # Strip Config #
@@ -50,9 +51,7 @@ def Off ():
         # to implement
         sys.stderr.write('Fading out...')
     else:
-        for i in range(strip.numPixels()):
-            strip.setPixelColor(i, Color(0, 0, 0))
-            strip.show()
+        off.quickOff(strip)
     return "Strip off"
 
 
