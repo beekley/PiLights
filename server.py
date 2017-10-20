@@ -47,9 +47,8 @@ def Off ():
     # Get URL param for off animation
     animation = request.args.get('animation', default='colorWipe')
 
-    if animation == 'fade':
-        # to implement
-        sys.stderr.write('Fading out...')
+    if animation == 'wipe':
+        off.wiper(strip)
     else:
         off.quickOff(strip)
     return "Strip off"
