@@ -50,7 +50,7 @@ def Off ():
     if animation == 'wipe':
         off.wipe(strip)
     else:
-        off.quickOff(strip)
+        off.quick(strip)
     return "Strip off"
 
 
