@@ -48,7 +48,7 @@ def Off ():
     animation = request.args.get('animation', default='colorWipe')
 
     if animation == 'wipe':
-        off.wiper(strip)
+        off.wipe(strip)
     else:
         off.quickOff(strip)
     return "Strip off"
