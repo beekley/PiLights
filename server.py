@@ -94,6 +94,21 @@ def send_file(filename):
 
 ### Lighting Routes ###
 
+@app.route("/off", methods=['GET'])
+
+def Off ():
+    # Get URL param for off animation
+    animation = request.args.get('animation', default='colorWipe')
+
+    if animation == 'fade':
+        # to implement
+        sys.stderr.write('Fading out...')
+    else:
+        for i in range(strip.numPixels()):
+            strip.setPixelColor(i, Color(0, 0, 0))
+            strip.show()
+
+
 @app.route("/strandtest", methods=['GET'])
 
 def StrandTest ():
