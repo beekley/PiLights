@@ -1,4 +1,5 @@
 import time
+import sys
 from math import floor
 from neopixel import *
 
@@ -42,3 +43,4 @@ def burn (strip):
             strip.setPixelColor(i, Color(g_x, r_x, b_x))
             strip.show()
             time.sleep(wait_ms/1000.0)
+            sys.stderr.write(str(g_x) + ',' + str(r_x) + ',' + str(b_x))
