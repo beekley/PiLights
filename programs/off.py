@@ -25,7 +25,7 @@ def wipe (strip, wait_ms=50):
 # 144, 12, 63
 # 88, 24, 69 (dark)
 # 0,0,0 (off)
-def burn (strip):
+def burn (strip, wait_ms=50):
     steps = 10
     g_i = 253
     g_f = 251
