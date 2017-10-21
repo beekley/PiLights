@@ -50,6 +50,8 @@ def Off ():
 
     if animation == 'wipe':
         off.wipe(strip)
+    elif animation == 'burn':
+        off.burn(strip)
     else:
         off.quick(strip)
     return "Strip off"
@@ -61,8 +63,8 @@ def StrandTest ():
     # Get URL params for type and color of animation
     animation = request.args.get('animation', default='colorWipe')
     color = request.args.get('color', default='')
-    sys.stderr.write('animation: ' + animation)
-    sys.stderr.write('color: ' + color)
+    sys.stderr.write('animation: ' + animation + '\n')
+    sys.stderr.write('color: ' + color + '\n')
 
     if animation == 'colorWipe':
         # if no color provided
