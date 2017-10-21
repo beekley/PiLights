@@ -36,9 +36,9 @@ def burn (strip):
     for x in range(steps):
         # Iterate through pixels
         for i in range(strip.numPixels()):
-            g_x = floor(g_i + x * (g_f - g_i) / steps)
-            r_x = floor(r_i + x * (r_f - r_i) / steps)
-            b_x = floor(b_i + x * (b_f - b_i) / steps)
+            g_x = int(g_i + x * (g_f - g_i) / steps)
+            r_x = int(r_i + x * (r_f - r_i) / steps)
+            b_x = int(b_i + x * (b_f - b_i) / steps)
             strip.setPixelColor(i, Color(g_x, r_x, b_x))
             strip.show()
             time.sleep(wait_ms/1000.0)
