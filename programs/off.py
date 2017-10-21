@@ -27,25 +27,25 @@ def wipe (strip, wait_ms=50):
 # 0,0,0 (off)
 def burn (strip, wait_ms=5):
     # burn up
-    steps = 20
-    g_i = 241
-    g_f = 251
-    r_i = 255
-    r_f = 255
-    b_i = 178
-    b_f = 221
-    # Iterate through number of steps
-    for x in range(steps):
-        # Iterate through pixels
-        for i in range(strip.numPixels()):
-            g_x = int(g_i + x * (g_f - g_i) / steps)
-            r_x = int(r_i + x * (r_f - r_i) / steps)
-            b_x = int(b_i + x * (b_f - b_i) / steps)
-            strip.setPixelColor(i, Color(g_x, r_x, b_x))
-            strip.show()
-            sys.stderr.write(str(g_x) + ',' + str(r_x) + ',' + str(b_x) + '\n')
-        time.sleep(wait_ms/1000.0)
-    sys.stderr.write('burn down..................')
+    # steps = 20
+    # g_i = 241
+    # g_f = 251
+    # r_i = 255
+    # r_f = 255
+    # b_i = 178
+    # b_f = 221
+    # # Iterate through number of steps
+    # for x in range(steps):
+    #     # Iterate through pixels
+    #     for i in range(strip.numPixels()):
+    #         g_x = int(g_i + x * (g_f - g_i) / steps)
+    #         r_x = int(r_i + x * (r_f - r_i) / steps)
+    #         b_x = int(b_i + x * (b_f - b_i) / steps)
+    #         strip.setPixelColor(i, Color(g_x, r_x, b_x))
+    #         strip.show()
+    #         sys.stderr.write(str(g_x) + ',' + str(r_x) + ',' + str(b_x) + '\n')
+    #     time.sleep(wait_ms/1000.0)
+    # sys.stderr.write('burn down..................\n')
     # burn down
     steps = 50
     g_i = 251
