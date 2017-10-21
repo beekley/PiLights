@@ -25,13 +25,13 @@ def wipe (strip, wait_ms=50):
 # 144, 12, 63
 # 88, 24, 69 (dark)
 # 0,0,0 (off)
-def burn (strip, wait_ms=50):
+def burn (strip, wait_ms=5):
     steps = 10
-    g_i = 253
+    g_i = 0
     g_f = 251
-    r_i = 255
+    r_i = 0
     r_f = 255
-    b_i = 244
+    b_i = 0
     b_f = 221
     # Iterate through number of steps
     for x in range(steps):
