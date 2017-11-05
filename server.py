@@ -45,7 +45,7 @@ def send_file(filename):
 
 def Off ():
     # Get URL param for off animation
-    animation = request.args.get('animation', default='colorWipe')
+    animation = request.args.get('animation', default='')
     sys.stderr.write('animation: ' + animation + '\n')
 
     if animation == 'wipe':
