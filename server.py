@@ -3,8 +3,8 @@ import sys
 from neopixel import *
 from flask import (Flask, request, send_from_directory)
 import programs.strandTest as strandTest
-import programs.off as offProgram
-import programs.hue as hue
+import programs.off as Off
+import programs.hue as Hue
 
 ################
 # Strip Config #
@@ -48,11 +48,11 @@ def off():
     sys.stderr.write('animation: ' + animation + '\n')
 
     if animation == 'wipe':
-        offProgram.wipe(STRIP)
+        Off.wipe(STRIP)
     elif animation == 'burn':
-        offProgram.burn(STRIP)
+        Off.burn(STRIP)
     else:
-        offProgram.quick(STRIP)
+        Off.quick(STRIP)
     return "Strip off"
 
 @APP.route("/hue", methods=['GET'])
@@ -61,7 +61,7 @@ def hue():
     g = int(request.args.get('g', default=255))
     b = int(request.args.get('b', default=255))
 
-    hue.solid(STRIP, r, g, b)
+    Hue.solid(STRIP, r, g, b)
     return "Color changed"
 
 
