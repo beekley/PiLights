@@ -4,6 +4,7 @@ from neopixel import *
 from flask import (Flask, request, send_from_directory)
 import programs.strandTest as strandTest
 import programs.off as offProgram
+import programs.hue as hue
 
 ################
 # Strip Config #
@@ -53,6 +54,15 @@ def off():
     else:
         offProgram.quick(STRIP)
     return "Strip off"
+
+@APP.route("/hue", methods=['GET'])
+def hue():
+    r = int(request.args.get('r', default=255))
+    g = int(request.args.get('g', default=255))
+    b = int(request.args.get('b', default=255))
+
+    hue.solid(STRIP, r, g, b)
+    return "Color changed"
 
 
 @APP.route("/strandtest", methods=['GET'])
