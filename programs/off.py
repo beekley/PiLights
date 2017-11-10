@@ -9,8 +9,15 @@ def quick (strip):
         strip.setPixelColor(i, Color(0, 0, 0))
         strip.show()
 
-# Fade out lights on strip in parallel
+# Turn off lights on strip in sequence
 def wipe (strip, wait_ms=50):
+    for i in range(strip.numPixels()):
+        strip.setPixelColor(i, Color(0, 0, 0))
+        strip.show()
+        time.sleep(wait_ms/1000.0)
+
+# Fade out lights on strip in parallel
+def fade (strip, wait_ms=50):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, Color(0, 0, 0))
         strip.show()

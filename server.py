@@ -51,6 +51,9 @@ def off():
         Off.wipe(STRIP)
     elif animation == 'burn':
         Off.burn(STRIP)
+    elif animation == 'fade':
+        sys.stderr.write(helper.currentColors[0])
+        Off.fade(STRIP)
     else:
         Off.quick(STRIP)
     return "Strip off"
