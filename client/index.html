@@ -3,8 +3,14 @@
 
 <div id="app">
   <p>{{ message }}</p>
-  <span>Animation: <input v-model="strandTestAnimation"></input></span>
-  <button v-on:click="strandTest">Play</button>
+  <p>
+    <span>Animation: <input v-model="strandTestAnimation"></input></span>
+    <button v-on:click="strandTest">Play</button>
+  </p>
+  <p>
+    <span>R: <input v-model="color_r"></input> G: <input v-model="color_g"></input> B: <input v-model="color_b"></input></span>
+    <button v-on:click="() => hue(color_r, color_g, color_b)">Set color</button>
+  </p>
 </div>
 
 <script src="/client/app.js"></script>

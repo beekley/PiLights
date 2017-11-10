@@ -12,6 +12,17 @@ const strandTest = async function(event) {
   }
 }
 
+// Displays a solid color using RGB values
+const hue = async function(r, g, b) {
+  try {
+    axios.get(`/hue?r=${r}&g=${g}&b=${b}`);
+  }
+  catch (e) {
+    console.log(e);
+    this.errors.push(e);
+  }
+}
+
 // View Model for main app
 const appVm = new Vue({
   el: '#app',
@@ -22,6 +33,7 @@ const appVm = new Vue({
   },
   methods: {
     strandTest,
+    hue,
   },
   created: () => {},
 });
