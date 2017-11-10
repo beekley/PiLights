@@ -1,5 +1,16 @@
 const URL = 'http://raspberrypi.local:4000';
 
+// Turns the strand off
+const strandTest = async function(event) {
+  try {
+    await axios.get(`/off?animation=${this.offAnimation}`);
+  }
+  catch (e) {
+    console.log(e);
+    this.errors.push(e);
+  }
+}
+
 // Plays strand test of given type
 const strandTest = async function(event) {
   try {
@@ -15,7 +26,7 @@ const strandTest = async function(event) {
 // Displays a solid color using RGB values
 const hue = async function(r, g, b) {
   try {
-    axios.get(`/hue?r=${r}&g=${g}&b=${b}`);
+    await axios.get(`/hue?r=${r}&g=${g}&b=${b}`);
   }
   catch (e) {
     console.log(e);
@@ -28,6 +39,7 @@ const appVm = new Vue({
   el: '#app',
   data: {
     message: 'Hello Vue.js!',
+    offAnimation: 'wipe',
     strandTestAnimation: 'rainbowCycle',
     errors: [],
     color_r: 255,

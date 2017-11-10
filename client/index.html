@@ -4,6 +4,10 @@
 <div id="app">
   <p>{{ message }}</p>
   <p>
+    <span>Animation: <input v-model="offAnimation"></input></span>
+    <button v-on:click="strandTest">Turn off</button>
+  </p>
+  <p>
     <span>Animation: <input v-model="strandTestAnimation"></input></span>
     <button v-on:click="strandTest">Play</button>
   </p>
