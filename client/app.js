@@ -30,6 +30,9 @@ const appVm = new Vue({
     message: 'Hello Vue.js!',
     strandTestAnimation: 'rainbowCycle',
     errors: [],
+    color_r: 255,
+    color_g: 255,
+    color_b: 255,
   },
   methods: {
     strandTest,
