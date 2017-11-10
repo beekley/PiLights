@@ -1,7 +1,7 @@
 const URL = 'http://raspberrypi.local:4000';
 
 // Turns the strand off
-const offAnimation = async function(event) {
+const off = async function(event) {
   try {
     await axios.get(`/off?animation=${this.offAnimation}`);
   }
@@ -47,7 +47,7 @@ const appVm = new Vue({
     color_b: 255,
   },
   methods: {
-    offAnimation,
+    off,
     strandTest,
     hue,
   },
