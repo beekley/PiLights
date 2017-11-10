@@ -11,6 +11,12 @@
     <span>R: <input v-model="color_r"></input> G: <input v-model="color_g"></input> B: <input v-model="color_b"></input></span>
     <button v-on:click="() => hue(color_r, color_g, color_b)">Set color</button>
   </p>
+  <p>
+    <button v-on:click="() => hue(255, 255, 255)">White</button>
+    <button v-on:click="() => hue(255, 180, 50)">Warm</button>
+    <button v-on:click="() => hue(255, 90, 0)">Goldenrod</button>
+    <button v-on:click="() => hue(255, 100, 190)">Lilac</button>
+  </p>
 </div>
 
 <script src="/client/app.js"></script>
