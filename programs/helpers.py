@@ -5,7 +5,7 @@ from neopixel import *
 currentColors = []
 def init (LED_COUNT):
     for i in range(LED_COUNT):
-        currentColors[i] = Color(0, 0, 0)
+        currentColors.append(Color(0, 0, 0))
 
 def setPixelColor (strip, i, color):
     strip.setPixelColor(i, color)
