@@ -3,7 +3,6 @@ import time
 import queue
 from neopixel import *
 from hardware import *
-import programs.helpers as helpers
 
 # Queue of functions
 q = queue.Queue()
