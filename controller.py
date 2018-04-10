@@ -45,11 +45,12 @@ def initialize():
     '''
     Interface for starting up LED controller. This must be the first method called.
     '''
+    print("Initializing LED strip.")
     # Create NeoPixel object with appropriate configuration.
     STRIP = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
     # Intialize the library (must be called once before other functions).
     STRIP.begin()
-    strandTest.rainbow(STRIP)
+    # strandTest.rainbow(STRIP)
 
 initialize()
 print(STRIP)
