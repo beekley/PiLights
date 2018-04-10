@@ -52,6 +52,7 @@ def initialize():
     strandTest.rainbow(STRIP)
 
 initialize()
+print(STRIP)
 push([print, "hello", "world"])
 # push([strandTest.rainbow, STRIP])
-push([print, "hi", "I am", 3])
+push([print, STRIP])
