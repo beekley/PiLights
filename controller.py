@@ -8,6 +8,7 @@ import programs.strandTest as strandTest
 # Queue of functions
 q = queue.Queue()
 t = None
+STRIP = None
 
 def readFromQueue():
     time.sleep(1)
