@@ -14,10 +14,9 @@ def init (LED_COUNT, STRIP):
 #     currentColors[i] = color
 
 # Take in 24 bit "Color" value and returns an object with the rgb values
-class Color(object):
-    r = 0
-    g = 0
-    b = 0
-
-    def __init__(self, color):
-        
+# class Color(object):
+#     r = 0
+#     g = 0
+#     b = 0
+#
+#     def __init__(self, color):
