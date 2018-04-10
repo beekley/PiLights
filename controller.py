@@ -3,6 +3,7 @@ import time
 import queue
 from neopixel import *
 from hardware import *
+import programs.strandTest as strandTest
 
 # Queue of functions
 q = queue.Queue()
@@ -50,4 +51,5 @@ def initialize():
 
 initialize()
 push([print, "hello", "world"])
+push([strandTest.rainbow, STRIP])
 push([print, "hi", "I am", 3])
