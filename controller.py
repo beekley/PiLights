@@ -49,8 +49,9 @@ def initialize():
     STRIP = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
     # Intialize the library (must be called once before other functions).
     STRIP.begin()
+    strandTest.rainbow(STRIP)
 
 initialize()
 push([print, "hello", "world"])
-push([strandTest.rainbow, STRIP])
+# push([strandTest.rainbow, STRIP])
 push([print, "hi", "I am", 3])
