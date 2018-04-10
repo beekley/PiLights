@@ -7,8 +7,11 @@ q = queue.Queue()
 t = None
 
 def readFromQueue():
+    time.sleep(1)
+    print("Processing queue.")
     while True:
         if q.empty():
+            print("Queue is empty. Stopping thread.")
             break
         item = q.get()
         print("Next in queue:", item[0].__name__, "with params:", item[1:])
@@ -25,6 +28,7 @@ def push(item):
     q.put(item)
     # If queue was empty when called, start a hw control thread
     if e:
+        print("Queue was empty. Starting new thread.")
         t = threading.Thread(target=readFromQueue)
         t.start()
 
@@ -34,5 +38,4 @@ def push(item):
 #     '''
 
 push([print, "hello", "world"])
-time.sleep(1)
 push([print, "hi", "I am", 3])
