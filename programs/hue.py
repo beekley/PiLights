@@ -1,5 +1,5 @@
 from neopixel import *
-import helpers as h
+# import helpers as h
 
 # Immediately change color to solid color
 def solid (strip, r, g, b):
