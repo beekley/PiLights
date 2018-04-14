@@ -54,7 +54,4 @@ def initialize():
 
 initialize()
 print(STRIP)
-push([print, "hello", "world"])
-push([strandTest.rainbow, STRIP])
-push([print, STRIP])
-push([strandTest.colorWipe, STRIP, Color(255, 0, 0)])
+push([strandTest.colorWipe, STRIP, Color(255, 255, 0)])

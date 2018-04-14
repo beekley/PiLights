@@ -3,8 +3,7 @@ from neopixel import *
 
 # Hijack the neopixel setPixelColor method to store the most recent color value for each pixels
 currentColors = []
-strip = STRIP
-def init (LED_COUNT, STRIP):
+def init (LED_COUNT):
     for i in range(LED_COUNT):
         currentColors.append(Color(0, 0, 0))
 
