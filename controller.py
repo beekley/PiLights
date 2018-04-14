@@ -8,7 +8,6 @@ import programs.strandTest as strandTest
 # Queue of functions
 q = queue.Queue()
 t = None
-# STRIP = None
 
 def readFromQueue():
     time.sleep(1)
@@ -58,3 +57,4 @@ print(STRIP)
 push([print, "hello", "world"])
 push([strandTest.rainbow, STRIP])
 push([print, STRIP])
+push([strandTest.colorWipe, STRIP, Color(255, 0, 0)])
