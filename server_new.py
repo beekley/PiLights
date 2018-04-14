@@ -30,5 +30,5 @@ def hue():
 # Start the server
 if __name__ == "__main__":
     # Start server
-    sys.stderr.write('Server Started.\n')
+    print('Server Started.')
     APP.run(host='0.0.0.0', port=4000)
