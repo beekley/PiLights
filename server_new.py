@@ -26,3 +26,9 @@ def hue():
 #
 #     Hue.solid(r, g, b)
 #     return "Color changed"
+
+# Start the server
+if __name__ == "__main__":
+    # Start server
+    sys.stderr.write('Server Started.\n')
+    APP.run(host='0.0.0.0', port=4000)
