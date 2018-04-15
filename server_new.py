@@ -20,14 +20,9 @@ def hue():
 
 @APP.route("/program/<string:program>", methods=['GET'])
 def genericProgramRoute(program):
-    print('prog', program)
-    print('arr', request.args.getlist('arr'))
-    r = int(request.args.get('r', default=255))
-    g = int(request.args.get('g', default=255))
-    b = int(request.args.get('b', default=255))
-
-    Hue.solid(r, g, b)
-    return "Color changed"
+    progParams = request.args.getlist('params')
+    controller.push([Hue.solid, STRIP] + progParams)
+    return "Program running"
 
 # Start the server
 if __name__ == "__main__":
