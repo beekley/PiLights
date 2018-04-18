@@ -30,7 +30,6 @@ def push(item):
     :param list The first item of the list is the function, the remaining are its params
     '''
     global running
-    print("push", running)
     e = q.empty() and not running
     # Add item to the Queue
     q.put(item)
