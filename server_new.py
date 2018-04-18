@@ -8,21 +8,16 @@ import controller
 
 APP = Flask(__name__, static_folder='client')
 STRIP = controller.STRIP
-
-@APP.route("/hue", methods=['GET'])
-def hue():
-    r = int(request.args.get('r', default=255))
-    g = int(request.args.get('g', default=255))
-    b = int(request.args.get('b', default=255))
-
-    controller.push([Hue.solid, STRIP, r, g, b])
-    return "Color changed"
+PROGRAMS = {
+    "hue": Hue.solid,
+    "rainbow": strandTest.rainbow
+}
 
 @APP.route("/program/<string:program>", methods=['POST'])
 def genericProgramRoute(program):
     progParams = request.get_json()
     print(progParams)
-    controller.push([Hue.solid, STRIP] + progParams)
+    controller.push([PROGRAMS[program], STRIP] + progParams)
     return "Program running"
 
 # Start the server
