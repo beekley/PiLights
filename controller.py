@@ -12,6 +12,7 @@ running = False
 
 def readFromQueue():
     # time.sleep(1)
+    global running
     print("Processing queue.")
     while True:
         if q.empty():
@@ -56,8 +57,6 @@ def initialize():
     # Intialize the library (must be called once before other functions).
     STRIP.begin()
     print("Initialization complete:", STRIP)
-    running = False
-    print(running)
 
 initialize()
 print(STRIP)
