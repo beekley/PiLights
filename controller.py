@@ -8,8 +8,6 @@ import programs.strandTest as strandTest
 # Queue of functions
 q = queue.Queue()
 t = None
-global running
-running = False
 
 def readFromQueue():
     # time.sleep(1)
@@ -17,7 +15,7 @@ def readFromQueue():
     while True:
         if q.empty():
             print("Queue is empty. Stopping thread.")
-            running = false
+            running = False
             break
         item = q.get()
         print("Next in queue:", item[0].__name__, "with params:", item[1:])
@@ -37,7 +35,8 @@ def push(item):
         print("Queue was empty. Starting new thread.")
         t = threading.Thread(target=readFromQueue)
         t.start()
-        running = true
+        global running
+        running = True
 
 # def clear():
 #     '''
