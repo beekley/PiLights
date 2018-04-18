@@ -8,13 +8,15 @@ import programs.strandTest as strandTest
 # Queue of functions
 q = queue.Queue()
 t = None
+running = false
 
 def readFromQueue():
-    time.sleep(1)
+    # time.sleep(1)
     print("Processing queue.")
     while True:
         if q.empty():
             print("Queue is empty. Stopping thread.")
+            running = false
             break
         item = q.get()
         print("Next in queue:", item[0].__name__, "with params:", item[1:])
@@ -26,7 +28,7 @@ def push(item):
     Interface for threads to add items to the LED queue
     :param list The first item of the list is the function, the remaining are its params
     '''
-    e = q.empty()
+    e = q.empty() && !running
     # Add item to the Queue
     q.put(item)
     # If queue was empty when called, start a hw control thread
@@ -34,6 +36,7 @@ def push(item):
         print("Queue was empty. Starting new thread.")
         t = threading.Thread(target=readFromQueue)
         t.start()
+        running = true
 
 # def clear():
 #     '''
