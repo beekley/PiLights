@@ -8,6 +8,7 @@ import programs.strandTest as strandTest
 # Queue of functions
 q = queue.Queue()
 t = None
+global running
 running = False
 
 def readFromQueue():
