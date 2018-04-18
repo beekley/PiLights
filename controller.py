@@ -8,6 +8,7 @@ import programs.strandTest as strandTest
 # Queue of functions
 q = queue.Queue()
 t = None
+running = False
 
 def readFromQueue():
     # time.sleep(1)
@@ -27,6 +28,8 @@ def push(item):
     Interface for threads to add items to the LED queue
     :param list The first item of the list is the function, the remaining are its params
     '''
+    global running
+    print("push", running)
     e = q.empty() and not running
     # Add item to the Queue
     q.put(item)
@@ -53,8 +56,8 @@ def initialize():
     # Intialize the library (must be called once before other functions).
     STRIP.begin()
     print("Initialization complete:", STRIP)
-    global running
     running = False
+    print(running)
 
 initialize()
 print(STRIP)
