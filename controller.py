@@ -8,8 +8,6 @@ import programs.strandTest as strandTest
 # Queue of functions
 q = queue.Queue()
 t = None
-global running
-running = False
 
 def readFromQueue():
     # time.sleep(1)
@@ -55,6 +53,8 @@ def initialize():
     # Intialize the library (must be called once before other functions).
     STRIP.begin()
     print("Initialization complete:", STRIP)
+    global running
+    running = False
 
 initialize()
 print(STRIP)
