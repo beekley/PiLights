@@ -21,7 +21,7 @@ def hue():
 @APP.route("/program/<string:program>", methods=['POST'])
 def genericProgramRoute(program):
     progParams = request.get_json()
-    print progParams
+    print(progParams)
     controller.push([Hue.solid, STRIP] + progParams)
     return "Program running"
 
