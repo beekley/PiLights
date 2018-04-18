@@ -18,9 +18,10 @@ def hue():
     controller.push([Hue.solid, STRIP, r, g, b])
     return "Color changed"
 
-@APP.route("/program/<string:program>", methods=['GET'])
+@APP.route("/program/<string:program>", methods=['POST'])
 def genericProgramRoute(program):
-    progParams = request.args.getlist('params')
+    progParams = request.get_json()
+    print progParams
     controller.push([Hue.solid, STRIP] + progParams)
     return "Program running"
 
