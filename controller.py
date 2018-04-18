@@ -28,7 +28,7 @@ def push(item):
     Interface for threads to add items to the LED queue
     :param list The first item of the list is the function, the remaining are its params
     '''
-    e = q.empty() and !running
+    e = q.empty() and not running
     # Add item to the Queue
     q.put(item)
     # If queue was empty when called, start a hw control thread
