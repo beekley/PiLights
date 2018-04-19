@@ -1,5 +1,5 @@
 
-from flask import (Flask, request, send_from_directory)
+from flask import (Flask, request)
 import programs.strandTest as strandTest
 # import programs.off as Off
 import programs.hue as hue
@@ -16,8 +16,8 @@ PROGRAMS = {
 @APP.route("/program/<string:program>/<string:pattern>", methods=['POST'])
 def genericProgramRoute(program, pattern):
     progParams = request.get_json()
-    print(progParams)
-    controller.push([PROGRAMS[program].get(pattern), STRIP] + progParams)
+    print(PROGRAMS[program].__dict__)
+    controller.push([PROGRAMS[program].__dict__.get(pattern), STRIP] + progParams)
     return "Program running"
 
 # Start the server
