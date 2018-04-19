@@ -1,23 +1,23 @@
 
 from flask import (Flask, request, send_from_directory)
-import programs.strandTest
+import programs.strandTest as strandTest
 # import programs.off as Off
-import programs.hue
+import programs.hue as hue
 # import programs.helpers as helpers
 import controller
 
 APP = Flask(__name__, static_folder='client')
 STRIP = controller.STRIP
-# PROGRAMS = {
-#     "hue": Hue.solid,
-#     "rainbow": strandTest.rainbow
-# }
+PROGRAMS = {
+    "hue": hue,
+    "strandTest": strandTest
+}
 
 @APP.route("/program/<string:program>/<string:pattern>", methods=['POST'])
 def genericProgramRoute(program, pattern):
     progParams = request.get_json()
     print(progParams)
-    controller.push([programs[program][pattern], STRIP] + progParams)
+    controller.push([PROGRAMS[program].get(pattern), STRIP] + progParams)
     return "Program running"
 
 # Start the server
