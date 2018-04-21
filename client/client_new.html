@@ -90,8 +90,10 @@
           const DELAY = 3000;
 
           try {
+            console.log(window.location.hostname);
             pattern.status = 'pending';
-            await axios.get('google.com');
+            const res = await axios.get(`http://${window.location.hostname}/client_new.html`);
+            console.log(res.data);
             pattern.status = 'ok';
           }
           catch (error) {
