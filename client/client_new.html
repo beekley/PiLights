@@ -7,8 +7,6 @@
   <title>PiLights Controller</title>
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css"></link>
-  <link href="styles.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
 </head>
 <body>
   <div id="app">
@@ -25,22 +23,43 @@
       <main>
         <v-content>
           <v-list two-line :dark="!power">
-          <template v-for="(item, index) in items">
-            <v-subheader v-if="item.header" :key="item.header">{{ item.header }}</v-subheader>
-            <v-list-tile v-else :key="item.title">
+          <template v-for="(pattern, index) in patterns">
+            <v-subheader v-if="pattern.header" :key="pattern.header">{{ pattern.header }}</v-subheader>
+            <v-list-tile v-else :key="pattern.title">
               <v-list-tile-avatar>
-                <v-icon v-html="item.icon"></v-icon>
+                <v-icon v-html="pattern.icon"></v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
+                <v-list-tile-title v-html="pattern.title"></v-list-tile-title>
+                <v-list-tile-sub-title v-html="pattern.subtitle"></v-list-tile-sub-title>
               </v-list-tile-content>
               <v-list-tile-action>
-                <v-btn flat fab @click="item.on = !item.on" v-if="item.on">
-                  <v-icon>play_arrow</v-icon>
-                </v-btn>
-                <v-btn flat fab @click="item.on = !item.on" v-if="!item.on">
+                <v-btn
+                  fab
+                  color="success"
+                  @click="add(pattern)"
+                  v-if="pattern.status === 'ok'"
+                  transition="fade-transition"
+                >
                   <v-icon>check</v-icon>
+                </v-btn>
+                <v-btn
+                  fab
+                  color="error"
+                  @click="add(pattern)"
+                  v-else-if="pattern.status === 'error'"
+                  transition="fade-transition"
+                >
+                  <v-icon>check</v-icon>
+                </v-btn>
+                <v-btn
+                  flat
+                  fab
+                  @click="add(pattern)"
+                  v-else
+                  transition="fade-transition"
+                >
+                  <v-icon>play_arrow</v-icon>
                 </v-btn>
               </v-list-tile-action>
             </v-list-tile>
@@ -52,6 +71,7 @@
 
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
     Vue.component('page', {
       template: '#page'
@@ -59,14 +79,28 @@
     new Vue({
       el: '#app',
       data: {
-        items: [
+        patterns: [
           { header: 'STRANDTEST' },
-          { icon: 'color_lens', title: 'Rainbow', subtitle: 'test', on: false },
-          { icon: 'color_lens', title: 'Rainbow 2', subtitle: 'test' },
+          { icon: 'color_lens', title: 'Rainbow I', subtitle: 'OG', status: 'ready' },
+          { icon: 'color_lens', title: 'Rainbow II', subtitle: 'The Squeakquel', status: 'ready' },
         ],
         title: 'PiLights',
         power: false,
-      }
+        add: async pattern => {
+          const DELAY = 3000;
+
+          try {
+            pattern.status = 'pending';
+            await axios.get('google.com');
+            pattern.status = 'ok';
+          }
+          catch (error) {
+            pattern.status = 'error';
+            console.log(error);
+          }
+          setTimeout(() => pattern.status = 'ready', DELAY)
+        },
+      },
     })
   </script>
 </body>
