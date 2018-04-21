@@ -81,8 +81,30 @@
       data: {
         patterns: [
           { header: 'STRANDTEST' },
-          { icon: 'color_lens', title: 'Rainbow I', subtitle: 'OG', status: 'ready' },
-          { icon: 'color_lens', title: 'Rainbow II', subtitle: 'The Squeakquel', status: 'ready' },
+          {
+            icon: 'color_lens',
+            title: 'Rainbow I',
+            subtitle: 'OG',
+            program: 'strandTest',
+            pattern: 'rainbow',
+            status: 'ready'
+          },
+          {
+            icon: 'color_lens',
+            title: 'Rainbow II',
+            subtitle: 'The Squeakquel',
+            program: 'strandTest',
+            pattern: 'rainbowCycle',
+            status: 'ready'
+          },
+          {
+            icon: 'color_lens',
+            title: 'Rainbow III',
+            subtitle: `This time it's personal`,
+            program: 'strandTest',
+            pattern: 'theaterChaseRainbow',
+            status: 'ready'
+          },
         ],
         title: 'PiLights',
         power: false,
@@ -94,7 +116,7 @@
             pattern.status = 'pending';
             const res = await axios({
               method: 'post',
-              url: `http://${window.location.hostname}:${window.location.port}/program/strandTest/rainbow`,
+              url: `http://${window.location.hostname}:${window.location.port}/program/${pattern.program}/${pattern.pattern}`,
               data: [],
             });
             console.log(res.data);
