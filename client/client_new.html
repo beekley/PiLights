@@ -94,7 +94,7 @@
             pattern.status = 'pending';
             const res = await axios({
               method: 'post',
-              url: `http://${window.location.hostname}:${window.location.port}/strandTest/rainbow`,
+              url: `http://${window.location.hostname}:${window.location.port}/program/strandTest/rainbow`,
               body: [],
             });
             console.log(res.data);
