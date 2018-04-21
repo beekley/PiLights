@@ -87,6 +87,7 @@
             subtitle: 'OG',
             program: 'strandTest',
             pattern: 'rainbow',
+            data: [],
             status: 'ready'
           },
           {
@@ -95,6 +96,7 @@
             subtitle: 'The Squeakquel',
             program: 'strandTest',
             pattern: 'rainbowCycle',
+            data: [],
             status: 'ready'
           },
           {
@@ -103,6 +105,7 @@
             subtitle: `This time it's personal`,
             program: 'strandTest',
             pattern: 'theaterChaseRainbow',
+            data: [],
             status: 'ready'
           },
         ],
@@ -112,14 +115,12 @@
           const DELAY = 3000;
 
           try {
-            console.log(window.location.hostname);
             pattern.status = 'pending';
-            const res = await axios({
+            await axios({
               method: 'post',
               url: `http://${window.location.hostname}:${window.location.port}/program/${pattern.program}/${pattern.pattern}`,
-              data: [],
+              data: pattern.data,
             });
-            console.log(res.data);
             pattern.status = 'ok';
           }
           catch (error) {
