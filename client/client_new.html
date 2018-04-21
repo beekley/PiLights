@@ -92,7 +92,11 @@
           try {
             console.log(window.location.hostname);
             pattern.status = 'pending';
-            const res = await axios.get(`http://${window.location.hostname}/client_new.html`);
+            const res = await axios({
+              method: 'post',
+              url: `http://${window.location.hostname}/strandTest/rainbow`,
+              body: [],
+            });
             console.log(res.data);
             pattern.status = 'ok';
           }
