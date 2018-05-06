@@ -1,9 +1,9 @@
 [Unit]
-Description=My service
+Description=PiLights
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 -u server_new.py
+ExecStart=sudo /usr/bin/python3 -u server_new.py
 WorkingDirectory=/home/pi/projects/PiLights
 StandardOutput=inherit
 StandardError=inherit
